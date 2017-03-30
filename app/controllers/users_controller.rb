@@ -1,16 +1,29 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
   def index
     @users = User.all
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
+
+    @events = Event.all
+    @handicap = []
+    @winlooseavg = []
+
+    @events.each do |event|
+      handicap = 0
+      winlooseavg = 0
+      @user.results.where("event_id = ?", event.id).each do |result|
+        handicap = handicap + result.score
+        winlooseavg = winlooseavg + result.win_loose_tie
+      end
+      @handicap[event.id] = average(handicap,event.id)
+      @winlooseavg[event.id] = average(winlooseavg,event.id)
+    end
   end
+
+
 
   # GET /users/new
   def new
@@ -71,4 +84,16 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name)
     end
+
+
+    def average(stats,event)
+      length = @user.results.where("event_id = ?", event).length
+      return stats.to_f / length.to_f
+    end
+
+
+
+
+
+
 end

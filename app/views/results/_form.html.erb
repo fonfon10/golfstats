@@ -12,6 +12,11 @@
   <% end %>
 
 
+
+<div class="row">
+  <div class="col-sm-4">
+
+
   <div class="field">
     <%= f.label :user %>
     <%= select_tag(:user_id, options_for_select(@users), :selected => :user_id)%>    
@@ -25,7 +30,7 @@
 
   <div class="field">
     <%= f.label :score %>
-    <%= f.number_field :score %>
+    <%= f.number_field :score, :class => 'text_field', :step => 0.5 %>
   </div>
 
   <div class="field">
@@ -36,4 +41,15 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+</div>
+
+
+
+</div>
+
 <% end %>
+
+
+
+

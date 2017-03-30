@@ -3,6 +3,30 @@ $navbar-default-bg: #073B15;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+
+
+
+.table-striped {
+  
+  th{
+    text-align:center;
+    background: lightgrey;
+    color: white; 
+    font-size: 1.2em;
+    padding-left: 25px; }
+
+  tr{
+    text-align:center;
+}
+
+
+}
+
+
+
+
+
 .center{
   text-align: center;
 }
@@ -12,7 +36,7 @@ $navbar-default-bg: #073B15;
   background-size: cover;
   height: 300px;
   h1,h2 {
-      color: #fff;
+      color: white;
       text-align: center;
       margin-bottom: 30px;
       letter-spacing: -1px;
@@ -37,7 +61,7 @@ $navbar-default-bg: #073B15;
 
 
 .btn-xlarge {
-  background-color: #073B15;
+  background-color: white;
 }
 
 .btn-xlarge:hover {
