@@ -12,15 +12,20 @@ class ResultsController < ApplicationController
     @result = Result.new
     @users = User.all.map { |i| [i.name, i.id]}    
     @events = Event.all.map { |i| [i.name, i.id]}    
+    @win = Win.all.map { |i| [i.name, i.id]}    
   end
 
   def edit
+    @users = User.all.map { |i| [i.name, i.id]}    
+    @events = Event.all.map { |i| [i.name, i.id]}    
+    @win = Win.all.map { |i| [i.name, i.id]}    
   end
 
   def create
     @result = Result.new(result_params)
     @result.event_id = params[:event_id]
     @result.user_id = params[:user_id]
+    @result.win_id = params[:win_id]
 
       if @result.save
         redirect_to @result, notice: 'Result was successfully created.' 
@@ -57,6 +62,6 @@ class ResultsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def result_params
-      params.require(:result).permit(:score, :win_loose_tie, :event_id, :user_id)
+      params.require(:result).permit(:score, :win_id, :event_id, :user_id)
     end
 end

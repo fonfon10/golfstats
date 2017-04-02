@@ -1,12 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 
-      <p><%= link_to "ALL", "#", class: "btn btn-danger btn-lg btn-xlarge" %></p>
-
-
-
     <% @users.each do |user| %>
-      <p><%= link_to user.name, user_path(user), class: "btn btn-danger btn-lg btn-xlarge" %></p>
+      <p><%= link_to user.name, user_path(user), class: "btn btn-danger btn-xlarge" %></p>
         
     <% end %>
 

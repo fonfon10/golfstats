@@ -19,8 +19,7 @@
         <td><%= result.user.name %></td>
         <td><%= result.event.name %></td>
         <td><%= result.score %></td>
-        <td><%= result.win_loose_tie %></td>
-        <td><%= link_to 'Show', result %></td>
+        <td><%= result.win.name %></td>
         <td><%= link_to 'Edit', edit_result_path(result) %></td>
         <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -30,4 +29,3 @@
 
 <br>
 
-<%= link_to 'New Result', new_result_path %>

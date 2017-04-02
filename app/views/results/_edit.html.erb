@@ -19,12 +19,12 @@
 
   <div class="field">
     <%= f.label :user %>
-    <%= select_tag(:user_id, options_for_select(@users), :selected => :user_id)%>    
+    <%= select(:user_id, @users)%>    
   </div>
 
   <div class="field">
     <%= f.label :event %>
-    <%= select_tag(:event_id, options_for_select(@events), :selected => :event_id)%>    
+    <%= select(:event_id, @events)%>    
   </div>
 
 
@@ -35,7 +35,7 @@
 
   <div class="field">
     <%= f.label :win %>
-    <%= select_tag(:win_id, options_for_select(@win), :selected => :win_id)%>    
+    <%= select(:win_id, @win%>    
   </div>
 
   <div class="actions">
@@ -49,7 +49,4 @@
 </div>
 
 <% end %>
-
-
-
 

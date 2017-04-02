@@ -7,8 +7,9 @@
 
 <p>
   <strong>Win loose tie:</strong>
-  <%= @result.win_loose_tie %>
+  <%= @result.win.name %>
 </p>
 
-<%= link_to 'Edit', edit_result_path(@result) %> |
-<%= link_to 'Back', results_path %>
+
+<p> <%= link_to 'Edit', edit_result_path(@result) %> </p>
+

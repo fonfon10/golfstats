@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+  
   end
 
   def show
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
       winlooseavg = 0
       @user.results.where("event_id = ?", event.id).each do |result|
         handicap = handicap + result.score
-        winlooseavg = winlooseavg + result.win_loose_tie
+        winlooseavg = winlooseavg + ((result.win_id-1)/2.0)
       end
       @handicap[event.id] = average(handicap,event.id)
       @winlooseavg[event.id] = average(winlooseavg,event.id)
@@ -88,8 +89,8 @@ class UsersController < ApplicationController
 
     def average(stats,event)
       length = @user.results.where("event_id = ?", event).length
-      return stats.to_f / length.to_f
-    end
+        return stats.to_f / length.to_f
+      end
 
 
 
